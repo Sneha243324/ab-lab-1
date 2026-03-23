@@ -1,12 +1,13 @@
 def score_deal(amount: float, risk: int, customer_type: str) -> float:
     base = amount / 1000.0
 
-    if customer_type == "enterprise":
-        multiplier = 1.3
-    elif customer_type == "smb":
-        multiplier = 1.0
-    else:
-        multiplier = 0.9
+    multipliers = {
+    "enterprise": 1.25,
+    "smb": 1.0,
+    "consumer": 0.9,
+    }
+    multiplier = multipliers.get(customer_type, 0.9)
+
 
     penalty = risk / 50.0
     return (base * multiplier) - penalty
