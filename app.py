@@ -21,6 +21,7 @@ def score_deal(amount: float, risk: int, customer_type: str) -> float:
 
 
 
+
 def decision(score: float) -> str:
     if score >= 8:
         return "APPROVE"
